@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="full-area">
+    <!-- first part -->
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <!-- second part of discover fly -->
+    <main class="main-content container">
+        <div class="booking-form">
+            <h3>Booking Flights</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label for="">Departure</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+            </div>
+            <!-- second part(ii) of discover fly -->
+            <div class="input-group f-class">
+                <div>
+                    <label id="expensive-price" for="">First Class ($150)</label>
+                    <input id="vip-seat" class="inp-style inp-width" type="number" name="" value="1">
+                </div>
+                <div class="plus-minus-btn">
+                    <button id="plus" class="select-btn">+</button>
+                    <button id="minus" class="select-btn">-</button>
+                </div>
+            </div>
+            
+            <div class="input-group f-class">
+                <div>
+                    <label id="cheap-price" for="">Economy ($100)</label>
+                    <input id="local-seat" class="inp-style inp-width" type="number" name="" value="1">
+                </div>
+                <div class="plus-minus-btn">
+                    <button id="positive" class="select-btn">+</button>
+                    <button id="negative" class="select-btn">-</button>
+                </div>
+            </div>
+            <!-- Last part of discover fly..... -->
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p id="price" >$500</p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p id="tax">$50</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p id="total-calculation">$550</p>
+                    </div>
+                </div>
+            </div>
+            <button id="enter" class="btn-style">Book Now</button>
+            <div id="next-page">
+                <p> <strong> Congratulation! </strong><br> Your are successfully buy your Air Ticket.</p>
+            </div>
+        </div>
+ 
+        <div class="booking-content">
+            <h1>Qatar Airways <br> Qatar Airways Company Q.C.S.C.</h1>
+            <p> <strong>Qatar Airways</strong> was established on November 22, 1993; operations started on January 20, 1994. Amman was first served in May 1994. In April 1995, the airline's CEO was the Sheikh Hamad Bin Ali Bin Jabor Al Thani who employed a staff of 75.</p>
+        </div>
+    </section>
+
+    <!--Thank You-->
+</body>
+
+<script>
+    // It's I understand better so I do this. //
+
+    // Vip Area......................//
+    document.getElementById("plus").addEventListener("click", function(){
+       var seatInput =  document.getElementById("vip-seat");
+    //    console.log(seatInput.value);
+       var seatCount = parseInt(seatInput.value)
+    //    console.log(seatCount);
+       var seatNewCount = seatCount + 1;
+       seatInput.value = seatNewCount;
+       const price = seatNewCount * 150;
+        document.getElementById("expensive-price").innerText = "First Class" + "$" + price;
+
+    totalAmount();
+    })
+
+    document.getElementById("minus").addEventListener("click", function(){
+       var seatInput =  document.getElementById("vip-seat");
+    //    console.log(seatInput.value);
+       var seatCount = parseInt(seatInput.value)
+    //    console.log(seatCount);
+       var seatNewCount = seatCount - 1;
+       seatInput.value = seatNewCount;
+       var price = seatNewCount * 150;
+       document.getElementById("expensive-price").innerText = "First Class" + "$" + price;
+
+    totalAmount();
+    })
+
+    // ..........................................................//
+    // Economy/Local Area.............//
+
+    document.getElementById("positive").addEventListener("click", function(){
+       var seatInput =  document.getElementById("local-seat");
+    //    console.log(seatInput.value);
+       var seatCount = parseInt(seatInput.value)
+    //    console.log(seatCount);
+       var seatNewCount = seatCount + 1;
+       seatInput.value = seatNewCount;
+       const price = seatNewCount * 100;
+        document.getElementById("cheap-price").innerText = "First Class" + "$" + price;
+
+    totalAmount();
+    })
+
+    document.getElementById("negative").addEventListener("click", function(){
+       var seatInput =  document.getElementById("local-seat");
+    //    console.log(seatInput.value);
+       var seatCount = parseInt(seatInput.value)
+    //    console.log(seatCount);
+       var seatNewCount = seatCount - 1;
+       seatInput.value = seatNewCount;
+       var price = seatNewCount * 100;
+       document.getElementById("cheap-price").innerText = "First Class" + "$" + price;
+    })
+
+    function totalAmount(){
+        var PriceInt = document.getElementById("expensive-price");
+        var priceTotal = parseInt (priceInt.value);
+
+        var AmountInt = document.getElementById("cheap-price");
+        var AmountTotal = AmountInt(local-seat.value);
+
+        var totalPrice = vip-seat * 150 + local-seat * 100;
+        document.getElementById("total-calculation").innerText= "$" + totalPrice;    
+    }
+</script>
+<script>
+     var enterBtn = document.getElementById("enter");
+    enterBtn.addEventListener('click', function(){
+        var fullArea = document.getElementById("full-area");
+        fullArea.style.display = "none";
+        var nextPage = document.getElementById("next-page");
+        nextPage.style.display = "block"
+        console.log("he knocked me")
+
+    })
+</script>
+
+</html>
